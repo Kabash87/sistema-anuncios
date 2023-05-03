@@ -4,12 +4,12 @@ import storage from "../../utils/storange";
 
 
 /**Recoje el AcessToken para recordar usuario  */
-export const login = credentials => {
+export const login = (credentials, rememberMe) => {
   return client.post('/auth/login', credentials).then(({accessToken}) => {
   setAuthoHeader(accessToken);
-
-    storage.set('auth', accessToken);
-   
+  if (rememberMe) {
+    storage.set('auth', accessToken); 
+  }
    })
 };
 

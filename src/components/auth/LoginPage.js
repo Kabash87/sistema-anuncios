@@ -5,34 +5,39 @@
 
 import { useNavigate } from "react-router-dom";
 import { login } from "./service";
+import { useState } from "react";
 
 function LoginPage({onLogin}) {
 const navigate = useNavigate();
+
+/**Configuracion del Mantener Sesión Iniciada */
+const [rememberMe, setRememberMe] = useState(false);
 
 
 
     const handleSubmit = async event => {
         event.preventDefault()
 
-try {
-    await login({
+       try {
+       await login({
         username: event.target.username.value,
         password: event.target.password.value,
-    });
-} catch (error) {
-    console.log("error");
-    window.alert("Error en el Inicio de Sesión. Revisa el Usuario o Contraseña")
-    return;
-}
-     
-
-
-
- /**Se inicia sesion correctamente */
+        
+      }, rememberMe);
+     } catch (error) {
+        console.log("error");
+        window.alert("Error en el Inicio de Sesión. Revisa el Usuario o Contraseña")
+        return;
+      }
+      /**Se inicia sesion correctamente */
         onLogin(true);
         navigate('/')
     };
 
+const handleRememberMeChange = event => {
+     setRememberMe(event.target.checked);
+    };
+  
     /**Formulario de Inicio de Sesion */
     return (
         <div className="loginForm"> <center>
@@ -42,7 +47,7 @@ try {
           <label>Usuario: <input name="username" type="text" placeholder="Usuario" defaultValue="admin" required/></label>
           <label>Contraseña: <input name="password" type="password" placeholder="Contraseña" required/> </label>
           <br/><br/>
-         <label><input type="Checkbox" name="stillLogin" value="true"/>Mantener la Sesión Iniciada</label> 
+         <label htmlFor="rememberMe"> <input type="checkbox" id="rememberMe" name="rememberMe" checked={rememberMe} onChange={handleRememberMeChange}/>Mantener la Sesión Iniciada</label> 
           <br/><br/>
           <button type="submit">Iniciar Sesión</button>
             </form></center>
