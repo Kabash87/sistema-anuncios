@@ -1,7 +1,7 @@
-Este proyecto funciona con Sparrest, por favor ejecutar antes de Ingresar al Proyecto
-Este proyecto funciona tambien con React JS, por favor ejecutar en el Terminal con el comando "npm start" antes de Ingresar al Proyecto
-Este proyecto incluye una base de datos ya previamente creada que se puede copiar y pegar dentro de la Base de datos de Sparrest, el archivo se llama "db(sparrest)
-
+- Este proyecto funciona con Sparrest, por favor ejecutar antes de Ingresar al Proyecto
+- Este proyecto funciona tambien con React JS, por favor ejecutar en el Terminal con el comando "npm start" antes de Ingresar al Proyecto
+- Este proyecto incluye una base de datos ya previamente creada que se puede copiar y pegar dentro de la Base de datos de Sparrest, el archivo se llama "db(sparrest)
+- Este proyecto funciona con Node, por favor instalar e ejecutar antes de Ingresar al Proyecto
 Link del proyecto: http://localhost:3000/
 
 Usuario Unico dentro del proyecto:
